@@ -1,11 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TM.Models.Entities;
 
-namespace TM.Data.Model
+namespace TM.Models
 {
     public partial class TMContext : DbContext
     {
+        public virtual DbSet<Board> Board { get; set; }
+
         public TMContext(DbContextOptions<TMContext> options)
             : base(options)
         {
@@ -18,7 +21,5 @@ namespace TM.Data.Model
                 entity.Property(e => e.Title).IsRequired();
             });
         }
-
-        public virtual DbSet<Board> Board { get; set; }
     }
 }
