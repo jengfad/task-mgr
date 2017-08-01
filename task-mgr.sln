@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TM.Data", "TM.Data\TM.Data.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TM.Repository", "TM.Repository\TM.Repository.csproj", "{C4470EFE-ED9A-413C-9865-B3896ED4EAD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TM.API", "TM.API\TM.API.csproj", "{D6440303-D445-4108-8198-C63BA5C53EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,18 @@ Global
 		{C4470EFE-ED9A-413C-9865-B3896ED4EAD9}.Release|x64.Build.0 = Release|x64
 		{C4470EFE-ED9A-413C-9865-B3896ED4EAD9}.Release|x86.ActiveCfg = Release|x86
 		{C4470EFE-ED9A-413C-9865-B3896ED4EAD9}.Release|x86.Build.0 = Release|x86
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|x64.ActiveCfg = Debug|x64
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|x64.Build.0 = Debug|x64
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|x86.ActiveCfg = Debug|x86
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Debug|x86.Build.0 = Debug|x86
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|x64.ActiveCfg = Release|x64
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|x64.Build.0 = Release|x64
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|x86.ActiveCfg = Release|x86
+		{D6440303-D445-4108-8198-C63BA5C53EB6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
