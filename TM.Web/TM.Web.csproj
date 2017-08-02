@@ -32,4 +32,8 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+  <Target Name="RunWebPackOnBuild" BeforeTargets="Build">
+    <Exec Command="webpack" />
+  </Target>
+  
 </Project>
