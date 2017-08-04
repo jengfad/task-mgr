@@ -23,7 +23,7 @@ export class BoardComponent implements OnInit {
     LoadBoards(): void {
         this._boardService.getData()
             .subscribe(boards => { 
-                console.log(boards); 
+                this.boards = boards;
             });
 
     }

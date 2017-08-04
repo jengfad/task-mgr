@@ -1,1 +1,9 @@
-<h1>Your pretty board component</h1>
+<h1>Le Boards</h1>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let board of boards" class="panel panel-default">
+            <div class="panel-heading">{{board.Id}}</div>
+            <div class="panel-body">{{board.Title}}</div>
+        </div>
+    </div>
+</div>
