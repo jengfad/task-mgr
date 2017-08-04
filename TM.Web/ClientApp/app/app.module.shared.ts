@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
+//components
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { BoardComponent } from './components/board/board.component';
+
+//services
+import { BoardService } from './services/board.service';
 
 export const sharedConfig: NgModule = {
     bootstrap: [ AppComponent ],
@@ -14,7 +20,8 @@ export const sharedConfig: NgModule = {
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        BoardComponent
     ],
     imports: [
         RouterModule.forRoot([
@@ -22,7 +29,9 @@ export const sharedConfig: NgModule = {
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'board', component: BoardComponent },
             { path: '**', redirectTo: 'home' }
         ])
-    ]
+    ],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, BoardService]
 };
