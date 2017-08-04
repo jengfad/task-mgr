@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using TM.Models;
 using TM.Repository.Repositories;
 using TM.Repository.Contracts;
+using Newtonsoft.Json.Serialization;
 
 namespace TM.API
 {
@@ -45,8 +46,8 @@ namespace TM.API
                     .AllowCredentials() );
             });
 
-            services.AddMvc();
-
+            services.AddMvc()
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
