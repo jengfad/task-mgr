@@ -13,13 +13,8 @@ export class BoardService {
 
     getData():Observable<Board[]> {
         return this._http.get('http://localhost:5001/api/board/')
-            .map(this.extractData)
+            .map((response: Response) => <any>response.json())
             .catch(this.handleError);
-    }
-
-    private extractData(res:Response) {
-        let body = res.json();
-        return body || [];
     }
 
     private handleError(error:any) {
