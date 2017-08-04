@@ -35,7 +35,18 @@ namespace TM.API
             services.AddDbContext< TMContext >(opts=>
                 opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials() );
+            });
+
             services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +55,11 @@ namespace TM.API
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            // global policy - assign here or on each controller
+            app.UseCors("CorsPolicy");
+
             app.UseMvc();
+            
         }
     }
 }
