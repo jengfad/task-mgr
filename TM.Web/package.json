@@ -47,6 +47,7 @@
     "zone.js": "0.8.10"
   },
   "devDependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.30",
     "@types/chai": "3.5.2",
     "@types/jasmine": "2.5.47",
     "chai": "3.5.0",
@@ -56,7 +57,6 @@
     "karma-chrome-launcher": "2.1.1",
     "karma-cli": "1.0.1",
     "karma-jasmine": "1.1.0",
-    "karma-webpack": "2.0.3",
-    "ng2-pop-over": "^0.9.37"
+    "karma-webpack": "2.0.3"
   }
 }

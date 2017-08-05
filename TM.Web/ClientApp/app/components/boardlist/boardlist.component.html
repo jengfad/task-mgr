@@ -22,15 +22,14 @@
         <div class="clearfix" *ngIf="i % 3 == 0"></div>
         <div class="col-md-4">
             <a>
-                <p (click)="popOver3.show($event)" [ngClass]="{'add-board': board.Id===0}">{{board.Title}}</p>
+                <p #p="ngbPopover" [ngbPopover]="popContent" [ngClass]="{'add-board': board.Id===0}">{{board.Title}}</p>
             </a>
         </div>
         </div>
     </div>
 </div>
 
-
-<pop-over #popOver3 [my]="'left'" [at]="'left'" [anchor-to]="true" [x-offset]="0" [y-offset]="0">
+<ng-template #popContent>
     <div class="panel panel-primary no-margin-bottom">
       <div class="panel-heading">Add New Board</div>
       <div class="panel-body">
@@ -49,5 +48,4 @@
         </form>
       </div>
     </div>
-</pop-over>
-
+</ng-template>

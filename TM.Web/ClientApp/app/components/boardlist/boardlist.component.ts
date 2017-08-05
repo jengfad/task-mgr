@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { BoardService } from '../../services/board.service';
@@ -6,17 +7,19 @@ import { Board } from '../../models/board';
 
 @Component({
     selector: 'board',
-    templateUrl: './board.component.html',
+    templateUrl: './boardlist.component.html',
     providers: <any>[ BoardService ]
 })
 
-export class BoardComponent implements OnInit {
+export class BoardListComponent implements OnInit {
 
     boards: Board[];
 
     public boardForm: FormGroup; // our model driven form
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = []; // use later to display form changes
+
+    @ViewChild('p') public popover: NgbPopover;
 
     constructor(private _fb: FormBuilder, private _boardService: BoardService) { }
 
@@ -44,6 +47,7 @@ export class BoardComponent implements OnInit {
         this._boardService.createBoard(model)
             .subscribe(result => { 
                 this.LoadBoards();
+                this.popover.close();
             },
             error => {
                 alert('Error on creating board')
