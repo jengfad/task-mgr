@@ -1,9 +1,27 @@
 <h1>Le Boards</h1>
+<style type="text/css">
+    p{
+        padding: 50px;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        background: #dbdfe5;
+    }
+    .add-board{
+        background: #95bcf9;
+    }
+    
+</style>
+
 <div class="container">
     <div class="row">
-        <div *ngFor="let board of boards" class="panel panel-default">
-            <div class="panel-heading">{{board.Id}}</div>
-            <div class="panel-body">{{board.Title}}</div>
+        <div *ngFor="let board of boards; let i = index">
+        <div class="clearfix" *ngIf="i % 3 == 0"></div>
+        <div class="col-md-4">
+            <a href="#">
+                <p [ngClass]="{'add-board': board.Id===0}">{{board.Title}}</p>
+            </a>
+        </div>
         </div>
     </div>
 </div>

@@ -12,11 +12,11 @@ import { Board } from '../../models/board';
 export class BoardComponent implements OnInit {
 
     boards: Board[];
-    
+    list: string[];
+
     constructor(private _boardService: BoardService) { }
 
     ngOnInit(): void {
-        console.log('This is on init');
         this.LoadBoards();
     }
 
@@ -24,6 +24,7 @@ export class BoardComponent implements OnInit {
         this._boardService.getData()
             .subscribe(boards => { 
                 this.boards = boards;
+                this.boards.push({Id:0, Title: "Add New Board"})
             });
 
     }

@@ -1,10 +1,11 @@
-import {Injectable} from "@angular/core";
-import {Http, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from "@angular/core";
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import {Board} from '../models/board';
+import { Board } from '../models/board';
+import { Global } from '../shared/global';
 
 @Injectable()
 export class BoardService {
@@ -12,7 +13,7 @@ export class BoardService {
     }
 
     getData():Observable<Board[]> {
-        return this._http.get('http://localhost:5001/api/board/')
+        return this._http.get(Global.API_DOMAIN + Global.BASE_BOARD_ENDPOINT)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }
