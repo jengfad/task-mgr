@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -12,8 +12,17 @@ export class BoardService {
     constructor(private _http:Http) {
     }
 
-    getData():Observable<Board[]> {
+    getBoards():Observable<Board[]> {
         return this._http.get(Global.API_DOMAIN + Global.BASE_BOARD_ENDPOINT)
+            .map((response: Response) => <any>response.json())
+            .catch(this.handleError);
+    }
+
+    createBoard(model: Board):Observable<Board[]> {
+        let body = JSON.stringify(model);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.post(Global.API_DOMAIN + Global.BASE_BOARD_ENDPOINT, body, options)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }

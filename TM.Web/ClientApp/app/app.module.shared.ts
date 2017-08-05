@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopoverModule } from 'ng2-pop-over';
 
 //components
 import { AppComponent } from './components/app/app.component'
@@ -24,6 +26,9 @@ export const sharedConfig: NgModule = {
         BoardComponent
     ],
     imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        PopoverModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -31,7 +36,8 @@ export const sharedConfig: NgModule = {
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'board', component: BoardComponent },
             { path: '**', redirectTo: 'home' }
-        ])
+        ]),
+        
     ],
     providers: [{ provide: APP_BASE_HREF, useValue: '/' }, BoardService]
 };

@@ -36,9 +36,10 @@ namespace TM.API.Controllers
 
         // POST api/board
         [HttpPost]
-        public void Post([FromBody]Board board)
+        public int Post([FromBody]Board board)
         {
             _boardRepo.Add(board);
+            return board.Id;
         }
 
         // PUT api/board/5

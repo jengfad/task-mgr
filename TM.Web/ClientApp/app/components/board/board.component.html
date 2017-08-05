@@ -10,6 +10,9 @@
     .add-board{
         background: #95bcf9;
     }
+    .no-margin-bottom{
+        margin-bottom: 0px;
+    }
     
 </style>
 
@@ -18,10 +21,33 @@
         <div *ngFor="let board of boards; let i = index">
         <div class="clearfix" *ngIf="i % 3 == 0"></div>
         <div class="col-md-4">
-            <a href="#">
-                <p [ngClass]="{'add-board': board.Id===0}">{{board.Title}}</p>
+            <a>
+                <p (click)="popOver3.show($event)" [ngClass]="{'add-board': board.Id===0}">{{board.Title}}</p>
             </a>
         </div>
         </div>
     </div>
 </div>
+
+
+<pop-over #popOver3 [my]="'left'" [at]="'left'" [anchor-to]="true" [x-offset]="0" [y-offset]="0">
+    <div class="panel panel-primary no-margin-bottom">
+      <div class="panel-heading">Add New Board</div>
+      <div class="panel-body">
+        <form [formGroup]="boardForm" novalidate (ngSubmit)="AddBoard(boardForm.value, boardForm.valid)">
+
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" formControlName="Title">
+                <small [hidden]="boardForm.controls.Title.valid || (boardForm.controls.Title.pristine && !submitted)">
+                    Title is required (minimum 5 characters).
+                </small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+      </div>
+    </div>
+</pop-over>
+
