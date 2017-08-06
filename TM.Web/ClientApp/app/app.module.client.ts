@@ -9,7 +9,6 @@ import { sharedConfig } from './app.module.shared';
     declarations: sharedConfig.declarations,
     imports: [
         BrowserModule,
-        
         HttpModule,
         ...sharedConfig.imports
     ],

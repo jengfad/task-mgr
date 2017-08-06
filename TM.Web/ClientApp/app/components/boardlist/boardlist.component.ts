@@ -15,6 +15,13 @@ export class BoardListComponent implements OnInit {
 
     boards: Board[];
 
+    tiles = [
+        {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+        {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+        {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+        {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    ];
+
     public boardForm: FormGroup; // our model driven form
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = []; // use later to display form changes

@@ -25,6 +25,8 @@ module.exports = (env) => {
                 '@angular/platform-browser',
                 '@angular/platform-browser-dynamic',
                 '@angular/router',
+                "@angular/material",
+                "@angular/material/prebuilt-themes/deeppurple-amber.css",
                 'bootstrap',
                 'bootstrap/dist/css/bootstrap.css',
                 'es6-shim',
