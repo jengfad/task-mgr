@@ -1,36 +1,26 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//components
-import { AppComponent } from './components/app/app.component'
-import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
-import { BoardListComponent } from './components/boardlist/boardlist.component';
-import { DialogResultExampleDialog } from './components/common/dialog-result-example-dialog';
+import { appComponentsConfig } from './app-module/app-components-config';
 
 //services
 import { BoardService } from './services/board.service';
+import { DialogsService } from './services/dialogs.service';
 
 export const sharedConfig: NgModule = {
-    bootstrap: [ AppComponent ],
+    bootstrap: [ 
+        ...appComponentsConfig.bootstrap 
+    ],
     declarations: [
-        AppComponent,
-        NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent,
-        BoardListComponent,
-        DialogResultExampleDialog
+        ...appComponentsConfig.declarations
     ],
     entryComponents: [
-        DialogResultExampleDialog
+        ...appComponentsConfig.entryComponents
     ],
     imports: [
         
@@ -38,15 +28,7 @@ export const sharedConfig: NgModule = {
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
-        RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'boardlist', component: BoardListComponent },
-            { path: '**', redirectTo: 'home' }
-        ]),
-        
+        ...appComponentsConfig.imports
     ],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, BoardService]
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, BoardService, DialogsService]
 };

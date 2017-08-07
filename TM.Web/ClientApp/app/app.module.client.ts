@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpModule } from '@angular/http';
 import { sharedConfig } from './app.module.shared';
-import { ngMaterialConfig } from './ng-material-config';
+import { ngMaterialConfig } from './app-module/ng-material-config';
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
