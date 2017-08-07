@@ -4,8 +4,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { MaterialModule } from '@angular/material';
-import { NgMaterialConfigModule } from './ng-material-config';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //components
 import { AppComponent } from './components/app/app.component'
@@ -14,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { BoardListComponent } from './components/boardlist/boardlist.component';
+import { DialogResultExampleDialog } from './components/common/dialog-result-example-dialog';
 
 //services
 import { BoardService } from './services/board.service';
@@ -26,11 +26,15 @@ export const sharedConfig: NgModule = {
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        BoardListComponent
+        BoardListComponent,
+        DialogResultExampleDialog
+    ],
+    entryComponents: [
+        DialogResultExampleDialog
     ],
     imports: [
-        MaterialModule,
-        NgMaterialConfigModule,
+        
+        BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),

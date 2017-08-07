@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
-
-
 import  {   
             MdButtonModule, 
             MdToolbarModule, 
-            MdGridListModule 
+            MdGridListModule,
+            MdDialogModule
         } from '@angular/material';
 
-@NgModule({
+export const ngMaterialConfig: NgModule = {
+    
     imports: [
         MdButtonModule,
         MdToolbarModule,
-        MdGridListModule
+        MdGridListModule,
+        MdDialogModule
     ]
-})
-
-export class NgMaterialConfigModule { }
+};
