@@ -4,7 +4,8 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { MdButtonModule, MdToolbarModule, MdGridListModule } from '@angular/material';
+import { MaterialModule } from '@angular/material';
+import { NgMaterialConfigModule } from './ng-material-config';
 
 //components
 import { AppComponent } from './components/app/app.component'
@@ -28,9 +29,8 @@ export const sharedConfig: NgModule = {
         BoardListComponent
     ],
     imports: [
-        MdButtonModule,
-        MdToolbarModule,
-        MdGridListModule,
+        MaterialModule,
+        NgMaterialConfigModule,
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot(),
