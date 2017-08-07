@@ -47,7 +47,8 @@
     "zone.js": "0.8.10"
   },
   "devDependencies": {
-    "@angular/material": "^2.0.0-beta.7",
+    "@angular/cdk": "^2.0.0-beta.8",
+    "@angular/material": "^2.0.0-beta.8",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.30",
     "@types/chai": "3.5.2",
     "@types/jasmine": "2.5.47",
