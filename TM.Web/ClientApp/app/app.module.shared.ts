@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { appComponentsConfig } from './app-module/app-components-config';
+import { appComponentsConfig } from './app-module-config/app-components-config';
 
 //services
 import { BoardService } from './services/board.service';
