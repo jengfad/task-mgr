@@ -7,12 +7,12 @@ import { HomeComponent } from '../components/home/home.component';
 import { FetchDataComponent } from '../components/fetchdata/fetchdata.component';
 import { CounterComponent } from '../components/counter/counter.component';
 import { BoardListComponent } from '../components/boardlist/boardlist.component';
-import { DialogResultExampleDialog } from '../components/common/dialog-result-example-dialog';
+import { CmDialogComponent } from '../components/common/cm-dialog-component';
 
 export const appComponentsConfig : NgModule = {
     bootstrap: [ AppComponent ],
     entryComponents: [
-        DialogResultExampleDialog
+        CmDialogComponent
     ],
     declarations: [
         AppComponent,
@@ -21,7 +21,7 @@ export const appComponentsConfig : NgModule = {
         FetchDataComponent,
         HomeComponent,
         BoardListComponent,
-        DialogResultExampleDialog
+        CmDialogComponent
     ],
     imports: [
         RouterModule.forRoot([

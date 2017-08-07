@@ -3,7 +3,8 @@ import  {
             MdButtonModule, 
             MdToolbarModule, 
             MdGridListModule,
-            MdDialogModule
+            MdDialogModule,
+            MdInputModule
         } from '@angular/material';
 
 export const ngMaterialConfig: NgModule = {
@@ -12,6 +13,7 @@ export const ngMaterialConfig: NgModule = {
         MdButtonModule,
         MdToolbarModule,
         MdGridListModule,
-        MdDialogModule
+        MdDialogModule,
+        MdInputModule
     ]
 };

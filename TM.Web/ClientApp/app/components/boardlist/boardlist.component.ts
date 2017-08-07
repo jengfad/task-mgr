@@ -1,14 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
+
 import { BoardService } from '../../services/board.service';
 import { Board } from '../../models/board';
+
+import { DialogsService } from '../../services/dialogs.service';
 
 @Component({
     selector: 'board',
     templateUrl: './boardlist.component.html',
-    providers: <any>[ BoardService ]
+    providers: <any>[ BoardService, DialogsService ]
 })
 
 export class BoardListComponent implements OnInit {
@@ -25,10 +27,20 @@ export class BoardListComponent implements OnInit {
     public boardForm: FormGroup; // our model driven form
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = []; // use later to display form changes
+    public result: any;
 
-    @ViewChild('p') public popover: NgbPopover;
 
-    constructor(private _fb: FormBuilder, private _boardService: BoardService) { }
+    constructor(
+        public dialogsService: DialogsService, 
+        private _fb: FormBuilder, 
+        private _boardService: BoardService
+    ) { }
+
+    openDialog() {
+        this.dialogsService
+            .confirm('Confirm Dialog', 'Are you sure you want to do this?')
+            .subscribe(res => this.result = res);
+    }
 
     ngOnInit(): void {
         this.LoadBoards();
@@ -54,10 +66,10 @@ export class BoardListComponent implements OnInit {
         this._boardService.createBoard(model)
             .subscribe(result => { 
                 this.LoadBoards();
-                this.popover.close();
             },
             error => {
                 alert('Error on creating board')
             });
     }
 }
+
