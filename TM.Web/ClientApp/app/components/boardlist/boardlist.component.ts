@@ -7,6 +7,9 @@ import { Board } from '../../models/board';
 
 import { DialogsService } from '../../services/dialogs.service';
 
+import { AddBoardDialogComponent } from './add.board.dialog.component';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
 @Component({
     selector: 'board',
     templateUrl: './boardlist.component.html',
@@ -28,18 +31,28 @@ export class BoardListComponent implements OnInit {
     public submitted: boolean; // keep track on whether form is submitted
     public events: any[] = []; // use later to display form changes
     public result: any;
-
+    selectedOption: string;
 
     constructor(
         public dialogsService: DialogsService, 
         private _fb: FormBuilder, 
-        private _boardService: BoardService
+        private _boardService: BoardService,
+        public dialog: MdDialog
     ) { }
 
     openDialog() {
-        this.dialogsService
-            .confirm('Confirm Dialog', 'Are you sure you want to do this?')
-            .subscribe(res => this.result = res);
+        // this.dialogsService
+        //     .confirm('Confirm Dialog', 'Are you sure you want to do this?')
+        //     .subscribe(res => this.result = res);
+
+        let config = new MdDialogConfig;
+
+        config.data = "Test";
+        let dialogRef = this.dialog.open(AddBoardDialogComponent, config);
+        dialogRef.afterClosed().subscribe(result => {
+            alert(result.Title);
+        });
+
     }
 
     ngOnInit(): void {

@@ -8,11 +8,13 @@ import { FetchDataComponent } from '../components/fetchdata/fetchdata.component'
 import { CounterComponent } from '../components/counter/counter.component';
 import { BoardListComponent } from '../components/boardlist/boardlist.component';
 import { CmDialogComponent } from '../components/common/cm-dialog-component';
+import { AddBoardDialogComponent } from '../components/boardlist/add.board.dialog.component';
 
 export const appComponentsConfig : NgModule = {
     bootstrap: [ AppComponent ],
     entryComponents: [
-        CmDialogComponent
+        CmDialogComponent,
+        AddBoardDialogComponent
     ],
     declarations: [
         AppComponent,
@@ -21,7 +23,8 @@ export const appComponentsConfig : NgModule = {
         FetchDataComponent,
         HomeComponent,
         BoardListComponent,
-        CmDialogComponent
+        CmDialogComponent,
+        AddBoardDialogComponent
     ],
     imports: [
         RouterModule.forRoot([

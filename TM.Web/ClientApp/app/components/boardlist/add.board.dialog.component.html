@@ -1,14 +1,23 @@
-<h1 md-dialog-title>Dialog</h1>
+<h1 md-dialog-title>Create Board</h1>
 <div md-dialog-content>
-  <form class="example-form">
-  <table class="example-full-width" cellspacing="0"><tr>
-    <td><md-input-container class="example-full-width">
-      <input mdInput placeholder="Title">
-    </md-input-container></td>
-  </tr></table>
-</form>
+  <!-- <form [formGroup]="boardForm" class="example-form">
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><md-input-container class="example-full-width">
+        <input mdInput placeholder="Title">
+      </md-input-container></td>
+    </tr></table>
+  </form> -->
+
+  <form [formGroup]="boardForm">
+
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" formControlName="Title">
+            </div>
+        </form>
+
 </div>
 <div md-dialog-actions>
-  <button md-button md-dialog-close="Option 1">Option 1</button>
-  <button md-button md-dialog-close="Option 2">Option 2</button>
+  <button md-button (click)="onCloseConfirm(boardForm.value)">Save</button>
+  <button md-button [md-dialog-close]>Close</button>
 </div>
