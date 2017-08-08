@@ -41,16 +41,18 @@ export class BoardListComponent implements OnInit {
     ) { }
 
     openDialog() {
-        // this.dialogsService
-        //     .confirm('Confirm Dialog', 'Are you sure you want to do this?')
-        //     .subscribe(res => this.result = res);
-
         let config = new MdDialogConfig;
 
         config.data = "Test";
         let dialogRef = this.dialog.open(AddBoardDialogComponent, config);
         dialogRef.afterClosed().subscribe(result => {
-            alert(result.Title);
+            this._boardService.createBoard(result)
+            .subscribe(result => { 
+                this.LoadBoards();
+            },
+            error => {
+                alert('Error on creating board')
+            });
         });
 
     }
@@ -73,16 +75,5 @@ export class BoardListComponent implements OnInit {
 
     }
 
-    AddBoard(model: Board, isValid: boolean) {
-        this.submitted = true; // set form submit to true
-
-        this._boardService.createBoard(model)
-            .subscribe(result => { 
-                this.LoadBoards();
-            },
-            error => {
-                alert('Error on creating board')
-            });
-    }
 }
 
