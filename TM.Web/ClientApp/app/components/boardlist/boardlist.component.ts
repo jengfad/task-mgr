@@ -46,13 +46,17 @@ export class BoardListComponent implements OnInit {
         config.data = "Test";
         let dialogRef = this.dialog.open(AddBoardDialogComponent, config);
         dialogRef.afterClosed().subscribe(result => {
-            this._boardService.createBoard(result)
-            .subscribe(result => { 
-                this.LoadBoards();
-            },
-            error => {
-                alert('Error on creating board')
-            });
+            console.log("res" + result);
+            if (typeof (result) !== 'undefined'){
+                this._boardService.createBoard(result)
+                .subscribe(result => { 
+                    this.LoadBoards();
+                },
+                error => {
+                    alert('Error on creating board')
+                });
+            }
+            
         });
 
     }
