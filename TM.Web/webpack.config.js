@@ -21,8 +21,11 @@ module.exports = (env) => {
                 { test: /\.css$/, use: [ 'to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
                 {
-                    test: /\.scss$/,
-                    loaders: ["style-loader", "css-loader", "sass-loader"]
+                    test: /\.(sass|scss)$/,
+                    use: [                    
+                        'raw-loader',
+                        'sass-loader',
+                    ]
                 }
             ]
         },

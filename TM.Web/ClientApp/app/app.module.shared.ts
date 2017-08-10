@@ -22,7 +22,6 @@ export const sharedConfig: NgModule = {
         ...appComponentsConfig.entryComponents
     ],
     imports: [
-        
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,

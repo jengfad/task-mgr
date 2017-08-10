@@ -1,12 +1,14 @@
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col-md-12'>
-            <nav-menu></nav-menu>
-        </div>
+<md-sidenav-container>
+    <nav-menu></nav-menu>
+    <div class="my-content">
+        <md-toolbar [color]="primary">
+            <button md-icon-button (click)="sidenav.open()">
+                <md-icon>menu</md-icon>
+            </button>
+            <span>Task-Manian</span>
+            <span class="fill-remaining-space"></span>
+            <span>tm</span>
+        </md-toolbar>
+        <router-outlet></router-outlet>
     </div>
-    <div class='row'>
-        <div class='col-md-12'>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
+</md-sidenav-container>

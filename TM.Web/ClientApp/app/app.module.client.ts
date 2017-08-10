@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { sharedConfig } from './app.module.shared';
 import { ngMaterialConfig } from './app-module-config/ng.material.config';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
@@ -12,6 +13,7 @@ import { ngMaterialConfig } from './app-module-config/ng.material.config';
     imports: [
         BrowserModule,
         HttpModule,
+        FlexLayoutModule,
         ...sharedConfig.imports,
         ...ngMaterialConfig.imports
     ],
