@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { routes }   from './app.route';
 
 import {
     AppComponent,
@@ -26,11 +27,6 @@ export const appComponentsConfig : NgModule = {
         AddBoardDialogComponent
     ],
     imports: [
-        RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'boardlist', component: BoardListComponent },
-            { path: '**', redirectTo: 'home' }
-        ])
+        RouterModule.forRoot(routes)
     ]
 };
