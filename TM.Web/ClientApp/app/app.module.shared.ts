@@ -9,8 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appComponentsConfig } from './app-module-config/app-components-config';
 
 //services
-import { BoardService } from './services/board.service';
-import { DialogsService } from './services/dialogs.service';
+import { BoardService, DialogsService } from './services';
 
 export const sharedConfig: NgModule = {
     bootstrap: [ 
