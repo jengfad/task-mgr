@@ -1,53 +1,34 @@
-<style type="text/css">
-    p{
-        padding: 50px;
-        font-size: 32px;
-        font-weight: bold;
-        text-align: center;
-        background: #dbdfe5;
-    }
-    .add-board{
-        background: #95bcf9;
-    }
-    .go-to-board{
-        background: #dbdfe5;
-    }
-    .no-margin-bottom{
-        margin-bottom: 0px;
-    }
-    
-</style>
+<md-card>
+  <md-card-title>Your Effing Boards</md-card-title>
+  <md-card-content class="flex-container" 
+      fxLayoutWrap="wrap"
+      fxLayout="row"
+      fxLayoutAlign="center" fxLayoutAlign.xs="start">    
 
-<ng-template #popContent>
-    <div class="panel panel-primary no-margin-bottom">
-      <div class="panel-heading">Add New Board</div>
-      <div class="panel-body">
-        <form [formGroup]="boardForm" novalidate (ngSubmit)="AddBoard(boardForm.value, boardForm.valid)">
+  <md-card *ngFor="let board of boards" class="flex-item question-card">
+    <md-card-header>
+      <md-card-title>
+        <span>
+          Test category
+        </span>
+      </md-card-title>
+      <md-card-subtitle>
+        The quick brown fox
+      </md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <md-list dense> 
+        <md-list-item>
+          answer sample<md-icon md-list-icon>check</md-icon>
+        </md-list-item>
+      </md-list>
 
-            <div class="form-group">
-                <label for="Title">Title</label>
-                <input type="text" class="form-control" formControlName="Title">
-                <small [hidden]="boardForm.controls.Title.valid || (boardForm.controls.Title.pristine && !submitted)">
-                    Title is required (minimum 5 characters).
-                </small>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-      </div>
-    </div>
-</ng-template>
-
-
-<md-grid-list cols="4" rowHeight="100px">
-  <md-grid-tile
-      *ngFor="let board of boards; let i = index"
-      [colspan]="4"
-      [rowspan]="1"
-      [ngClass]="{'add-board': board.Id===0, 'go-to-board': board.Id > 0}"
-      >
-    <div *ngIf="board.Id === 0"><button (click)="openDialog()" md-button>{{board.Title}}</button></div>
-    <div *ngIf="board.Id > 0"><button md-button>{{board.Title}}</button></div>
-  </md-grid-tile>
-</md-grid-list>
+      <md-chip-list>
+        <md-chip>
+          sample tag
+        </md-chip>
+      </md-chip-list>
+    </md-card-content>
+  </md-card>
+  </md-card-content>    
+</md-card>

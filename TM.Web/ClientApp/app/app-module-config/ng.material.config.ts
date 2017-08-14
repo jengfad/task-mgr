@@ -7,7 +7,9 @@ import  {
             MdInputModule,
             MdSidenavModule,
             MdIconModule,
-            MdListModule
+            MdListModule,
+            MdChipsModule,
+            MdCardModule
         } from '@angular/material';
 
 export const ngMaterialConfig: NgModule = {
@@ -20,6 +22,8 @@ export const ngMaterialConfig: NgModule = {
         MdInputModule,
         MdSidenavModule,
         MdIconModule,
-        MdListModule
+        MdListModule,
+        MdChipsModule,
+        MdCardModule
     ]
 };

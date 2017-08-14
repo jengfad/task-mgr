@@ -13,6 +13,7 @@ import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 @Component({
     selector: 'board',
     templateUrl: './boardlist.component.html',
+    styleUrls: ['./boardlist.component.scss'],
     providers: <any>[ BoardService, DialogsService ]
 })
 
