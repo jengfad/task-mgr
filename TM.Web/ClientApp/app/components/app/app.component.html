@@ -1,5 +1,7 @@
 <md-sidenav-container>
-    <nav-menu></nav-menu>
+    <md-sidenav #sidenav class="sidenav">
+        <nav-menu></nav-menu>
+    </md-sidenav>
     <div class="my-content">
         <md-toolbar [color]="primary">
             <button md-icon-button (click)="sidenav.open()">
